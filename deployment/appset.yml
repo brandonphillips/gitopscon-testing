@@ -19,7 +19,7 @@ spec:
       source:
         repoURL: https://github.com/brandonphillips/gitopscon-testing.git
         targetRevision: '{{head_sha}}'
-        path: base
+        path: example-app/base
       project: default
       syncPolicy:
         syncOptions:
