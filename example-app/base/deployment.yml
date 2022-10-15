@@ -18,7 +18,7 @@ spec:
       containers:
       - name: webserver-simple
         imagePullPolicy: Always
-        image: fleatbnp/webserver-simple:latest
+        image: fleatbnp/webserver-simple:5ce07a9ebe90a28a7e1f4e521f6e879dc7133a3a
         ports:
         - containerPort: 8080        
 
