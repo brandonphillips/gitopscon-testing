@@ -10,7 +10,7 @@ spec:
         owner: brandonphillips
         repo: gitopscon-testing
         tokenRef:
-          secretName: gitopscon-testing-repo
+          secretName: repo-3781534196
           key: password
         labels:
         - preview
