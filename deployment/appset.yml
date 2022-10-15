@@ -11,6 +11,7 @@ spec:
         repo: gitopscon-testing
         tokenRef:
           secretName: gitopscon-testing-repo
+          key: password
         labels:
         - preview
       requeueAfterSeconds: 300
