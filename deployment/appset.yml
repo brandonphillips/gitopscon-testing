@@ -14,7 +14,7 @@ spec:
           key: password
         labels:
         - preview
-      requeueAfterSeconds: 300
+      requeueAfterSeconds: 15
   template:      
     metadata:
       name: 'simple-deployment-{{branch}}-{{number}}'
