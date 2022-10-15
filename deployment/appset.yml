@@ -7,36 +7,28 @@ spec:
   generators:
   - pullRequest:
       github:
-        # The GitHub organization or user.
         owner: brandonphillips
-        # The Github repository
         repo: gitopscon-testing
-        # Labels is used to filter the PRs that you want to target
         labels:
         - preview
+      requeueAfterSeconds: 300
   template:      
     metadata:
       name: 'simple-deployment-{{branch}}-{{number}}'
     spec:
-      # The project the application belongs to.
-      project: default
-
-      # Source of the application manifests
       source:
         repoURL: https://github.com/brandonphillips/gitopscon-testing.git
         targetRevision: '{{head_sha}}'
-        path: ./base/
-      
-      # Destination cluster and namespace to deploy the application
-      destination:
-        server: https://kubernetes.default.svc
-        namespace: default
-
-      # Sync policy
+        path: base
+      project: default
       syncPolicy:
         syncOptions:
           - CreateNamespace=true  
-        automated: # automated sync by default retries failed attempts 5 times with following delays between attempts ( 5s, 10s, 20s, 40s, 80s ); retry controlled using `retry` field.
-          prune: true # Specifies if resources should be pruned during auto-syncing ( false by default ).
-          selfHeal: true # Specifies if partial app sync should be executed when resources are changed only in target Kubernetes cluster and no git change detected ( false by default ).
+        automated:
+          prune: true
+          selfHeal: true
+      destination:
+        server: https://kubernetes.default.svc
+        namespace: 'simple-deployment-{{branch}}-{{number}}'
+      
       
