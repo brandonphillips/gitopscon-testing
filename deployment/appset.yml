@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: ApplicationSet
 metadata:
-  name: many-apps-application-set
+  name: preview-environments
   namespace: argocd
 spec:
   generators:
@@ -16,7 +16,7 @@ spec:
         - preview
   template:      
     metadata:
-      name: '{{path.basename}}'
+      name: 'simple-deployment-{{branch}}-{{number}}'
     spec:
       # The project the application belongs to.
       project: default
@@ -24,13 +24,19 @@ spec:
       # Source of the application manifests
       source:
         repoURL: https://github.com/brandonphillips/gitopscon-testing.git
-        targetRevision: HEAD
-        path: '{{path}}'
+        targetRevision: '{{head_sha}}'
+        path: base/
+        kustomize:
+          nameSuffix: {{branch}}
+          commonLabels:
+            app.kubernetes.io/instance: {{branch}}-{{number}}
+          images:
+          - fleatbnp/webserver-simple:{{head_sha}}
       
       # Destination cluster and namespace to deploy the application
       destination:
         server: https://kubernetes.default.svc
-        namespace: '{{path.basename}}'
+        namespace: default
 
       # Sync policy
       syncPolicy:
