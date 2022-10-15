@@ -25,7 +25,7 @@ spec:
       source:
         repoURL: https://github.com/brandonphillips/gitopscon-testing.git
         targetRevision: '{{head_sha}}'
-        path: base/
+        path: ./base/
         kustomize:
           nameSuffix: {{branch}}
           commonLabels:
