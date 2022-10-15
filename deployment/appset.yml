@@ -11,7 +11,7 @@ spec:
         repo: gitopscon-testing
         labels:
         - preview
-      requeueAfterSeconds: 5
+      requeueAfterSeconds: 300
   template:      
     metadata:
       name: 'simple-deployment-{{branch}}-{{number}}'
