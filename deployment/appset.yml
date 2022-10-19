@@ -23,6 +23,9 @@ spec:
         repoURL: https://github.com/brandonphillips/gitopscon-testing.git
         targetRevision: '{{head_sha}}'
         path: example-app/base
+        kustomize:
+          images:
+          - fleatbnp/webserver-simple:{{head_sha}}
       project: default
       syncPolicy:
         syncOptions:
