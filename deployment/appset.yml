@@ -26,8 +26,7 @@ spec:
         kustomize:
           images:
           - fleatbnp/webserver-simple:{{head_sha}}
-          namespaces:
-          - 'simple-deployment-{{branch}}-{{number}}'
+          namespace: 'simple-deployment-{{branch}}-{{number}}'
       project: default
       syncPolicy:
         syncOptions:
