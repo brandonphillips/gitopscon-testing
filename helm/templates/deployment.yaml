@@ -17,6 +17,6 @@ spec:
       containers:
         - name: {{ .Values.image.name }}
           imagePullPolicy: {{ .Values.image.pullPolicy }}
-          image: "fleatbnp/webserver-simple:{{ default .Chart.appVersion .Values.image.tag }}"
+          image: "fleatbnp/webserver-simple:{{ default .Chart.Version .Values.image.tag }}"
           ports:
             - containerPort: {{ .Values.service.port }}

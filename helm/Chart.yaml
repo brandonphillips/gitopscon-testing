@@ -3,4 +3,4 @@ name: simple-deployment
 description: The helm chart for the simple-deployment
 type: application
 version: 0.1.0
-appVersion: "aae4524acce1133de842528c6328733afcd9d1ec"
+appVersion: "1.16.0"

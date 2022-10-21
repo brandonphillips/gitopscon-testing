@@ -6,7 +6,7 @@ namespace: staging
 
 image:
   name: webserver-simple
-  tag: ''
+  tag: 'aae4524acce1133de842528c6328733afcd9d1ec'
   pullPolicy: IfNotPresent
 
 service:
