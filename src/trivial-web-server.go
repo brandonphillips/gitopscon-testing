@@ -12,7 +12,7 @@ import (
 
 func main() {
 	fmt.Println("Basic web server is starting on port 8080...")
-	fs := http.FileServer(http.Dir("./src/html"))
+	fs := http.FileServer(http.Dir("html/"))
 	http.Handle("/", fs)
 
 	err := http.ListenAndServe(":8080", nil)
