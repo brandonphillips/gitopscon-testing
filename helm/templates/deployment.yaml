@@ -20,3 +20,5 @@ spec:
           image: "fleatbnp/webserver-simple:{{ default .Chart.Version .Values.image.tag }}"
           ports:
             - containerPort: {{ .Values.service.port }}
+      imagePullSecrets:
+        - name: regcred
