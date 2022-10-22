@@ -6,8 +6,8 @@ import (
 )
 
 func indexHandler(w http.ResponseWriter, r *http.Request) {
-	fmt.Fprintf(w, "Hello GitOps Con!")
-	fmt.Fprintf(w, "Release: Staging")
+	fmt.Fprintf(w, "Hello GitOps Con!\n\n")
+	fmt.Fprintf(w, "Release: Preview Environment")
 
 }
 
